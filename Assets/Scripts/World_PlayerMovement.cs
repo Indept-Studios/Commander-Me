@@ -5,10 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class World_PlayerMovement : MonoBehaviour
 {
-    public Vector2 movement;
+    private Vector2 movement;
     private new Rigidbody2D rigidbody;
-
-    public Transform PlayerTransform { get { return transform; } }
 
     public float MovementSpeed { get { return 10; } }
 
