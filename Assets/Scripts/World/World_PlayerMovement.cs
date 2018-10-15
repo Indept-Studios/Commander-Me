@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class World_PlayerMovement : MonoBehaviour
 {
-    private Vector2 movement;
+    public Vector2 movement;
     private new Rigidbody2D rigidbody;
 
     public float MovementSpeed { get { return 10; } }
