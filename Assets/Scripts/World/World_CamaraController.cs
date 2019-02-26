@@ -4,25 +4,43 @@ using UnityEngine;
 
 public class World_CamaraController : MonoBehaviour
 {
-    public GameObject player;
+    [SerializeField]
+    GameObject player;
 
     private Vector3 offset;
     private World_PlayerMovement playerMovement;
+   
+    Vector3 playerTransformPosition;
+    Vector3 CamaraTransformPosition;
 
+    public float smoothSpeed = 0.025f;
     public float camSens = 50;
+    public float freeWalk = 3;
+
+    const float CAMARA_Z = -10f;
 
     private void Start()
     {
-        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<World_PlayerMovement>();
+        playerMovement = player.GetComponent<World_PlayerMovement>();
 
-        offset = transform.position - player.transform.position;
+        offset = CamaraTransformPosition - playerTransformPosition;
     }
 
     private void LateUpdate()
     {
+        playerTransformPosition = new Vector3(player.transform.position.x, player.transform.position.y,CAMARA_Z);
+        CamaraTransformPosition = new Vector3(transform.position.x, transform.position.y, CAMARA_Z);
+
         if (playerMovement.movement != Vector2.zero)
         {
-            transform.position = player.transform.position + offset;
+            if (Vector3.Distance(playerTransformPosition, CamaraTransformPosition)>3)
+            {
+                Vector3 desiredPosition = playerTransformPosition + offset;
+                Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+                transform.position = smoothedPosition;
+            }
+           
+            //transform.position = playerTransformPosition + offset;
         }
         else
         {
@@ -35,7 +53,7 @@ public class World_CamaraController : MonoBehaviour
 
     private void MouseMovement()
     {
-        transform.position += new Vector3(-Input.GetAxisRaw("Mouse X") * Time.deltaTime * camSens, -Input.GetAxisRaw("Mouse Y") * Time.deltaTime * camSens, 0);
+        transform.position += new Vector3(-Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y"), 0) * Time.deltaTime * camSens;
     }
 
 }

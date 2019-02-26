@@ -213,10 +213,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.34088954, y: -0.4915623}
-      - {x: -0.33365723, y: 0.4915624}
-      - {x: 0.34088948, y: 0.49156252}
-      - {x: 0.33727333, y: -0.5}
+    - - {x: -0.4237322, y: -0.5084377}
+      - {x: -0.42340347, y: 0.5000001}
+      - {x: 0.4329369, y: 0.5168756}
+      - {x: 0.43392313, y: -0.46624932}
 --- !u!1 &114126661
 GameObject:
   m_ObjectHideFlags: 0
@@ -4661,6 +4661,7 @@ GameObject:
   - component: {fileID: 224598185}
   - component: {fileID: 224598189}
   - component: {fileID: 224598184}
+  - component: {fileID: 224598190}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4674,7 +4675,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 224598183}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c21b4ff49200754bb956d322d0d85d9, type: 3}
   m_Name: 
@@ -4727,7 +4728,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &224598187
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4805,6 +4806,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &224598190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 224598183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8f133aebda77418b01b89d50b69a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 7
+  jumpSpeed: 7
+  movement: {x: 0, y: 0}
 --- !u!1 &372092712
 GameObject:
   m_ObjectHideFlags: 0
@@ -5227,7 +5242,7 @@ MonoBehaviour:
   m_Follow: {fileID: 224598188}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 6
+    OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -5249,7 +5264,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1109936670}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.28870332, y: 2.1000001, z: 0}
+  m_LocalPosition: {x: -0.83401394, y: 3.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 553483286}
@@ -5453,7 +5468,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5476,7 +5491,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1939455129}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.28870332, y: 2.1000001, z: 0}
+  m_LocalPosition: {x: -0.83401394, y: 3.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1482448775}
