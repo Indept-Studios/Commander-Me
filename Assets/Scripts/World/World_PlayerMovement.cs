@@ -4,38 +4,39 @@ using UnityEngine;
 
 public class World_PlayerMovement : MonoBehaviour
 {
+    public float maxSpeed = 3;
+
     public Vector2 movement;
-    private new Rigidbody2D rigidbody;
 
-    public float MovementSpeed { get { return 10; } }
-
-    private void Awake()
+    protected Rigidbody2D rb2d;
+   
+    void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    void Update()
     {
         Inputs();
-        Move();
     }
 
-    private void Inputs()
+    void FixedUpdate()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        Movement();
     }
 
-    private void SetMovement()
+
+    void Inputs()
     {
-        movement.Normalize();
-        movement *= MovementSpeed;
+        movement = Vector2.zero;
+
+        movement.x = Input.GetAxis("Horizontal");
+        movement.y = Input.GetAxis("Vertical");
     }
 
-    public void Move()
+    public void Movement()
     {
-        Vector2 targetMovement = rigidbody.position + movement * Time.fixedDeltaTime;
-        rigidbody.MovePosition(targetMovement);
+        rb2d.position += (movement * Time.fixedDeltaTime) * maxSpeed;
     }
 
 }

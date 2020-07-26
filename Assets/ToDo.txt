@@ -1,0 +1,31 @@
+﻿
+
+! Auf jedenfall
+? Kann man sich Gedanken machen
+
+Allgemein
+-----------------------
+! Sounds
+! Spieler Asset
+! Sorting Layer
+
+? Asset selber machen?
+? Fog of War
+
+
+World
+-----------------------
+! Check Smoothe Cam verfolgung
+! Städte Asset
+
+
+? Ranzoomen der Cam
+
+
+Level
+-----------------------
+
+Raycast = Schüsse Simulieren
+
+
+

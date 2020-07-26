@@ -25,6 +25,8 @@ public class CityEnter : MonoBehaviour
             }
         }
     }
-
-   
+    public void OnTriggerEnter(Collider other)
+    {
+        
+    }
 }
